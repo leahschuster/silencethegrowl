@@ -1,0 +1,28 @@
+/**
+ * Grid Settings
+ * Width settings for media queries in pixels
+ * REQUIRED: All
+ */
+$widescreen             : 1200;
+$desktop                : 992;
+$tablet                 : 768;
+$mobile                 : 480;
+
+$columns                : 12;
+$margin                 : 10px;
+$padding                : 10px;
+
+$responsive             : true;
+$from-direction         : left;
+
+
+
+
+/**
+ * Colors
+ */
+
+$colorPrimary:     #0167b3;
+$colorSecondary:   #66abde;
+$colorTextBody:    #434645;
+$colorGray:        #edf1f4;

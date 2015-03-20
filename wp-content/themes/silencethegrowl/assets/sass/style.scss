@@ -1,0 +1,25 @@
+@import "compass/reset"; 
+@import "compass"; 
+
+ 
+@import 
+"lib/config",
+"lib/grid",
+"lib/typography",
+"lib/buttons",
+"lib/fontawesome",
+"lib/helpers",
+"lib/body",
+"lib/forms",
+"lib/modals",
+"modules/header",
+"modules/navigation",
+"modules/footer";
+
+//Builds sprite of sponsor logos
+$icons-sprite-dimensions : true;
+@import "icons/*.png";
+@include all-icons-sprites;
+
+
+

@@ -1,0 +1,278 @@
+//Logo + Donate + Get Invovled + Hamburger Nav
+header{
+     position: fixed;
+     z-index: 30;
+     width: 100%;
+     top: 0;
+     @include transition(transform 200ms linear);
+     @include backface-visibility(hidden);
+     &.nav-up{
+          @include transform(translateY(-150px));
+     }
+     &.bg-white{
+          background:#ffffff;
+          border: 1px solid #cccccc;
+          nav a {
+               color: $colorPrimary;
+          }
+          .navbar-brand{
+               background-image: url('/wp-content/themes/unitedwaydallas/assets/img/unitedwaydallas-logo-blue.png');
+          }
+     }
+     nav{
+          padding-top: 25px;
+          @include media(mobile){
+               padding-top: 0;
+          }
+     }
+
+     .nav-toggle{
+          font-size: 25px;
+          padding-right: 30px;
+          position: relative; 
+          top: 4px;
+          @include media(mobile){
+               padding-right: 15px;
+          }
+     }
+}
+
+//United Way Logo in top left corner
+.navbar-brand{
+     width: 146px;
+     height: 83px;
+     margin: 20px;
+     padding: 0;
+     @include background-size(contain);
+     background-image: url('/wp-content/themes/unitedwaydallas/assets/img/unitedwaydallas-logo-white.png');
+     background-repeat: no-repeat;
+     @include media(tablet) {
+          width: 125px;
+          height: 75px;
+     }
+     @include media(mobile) {
+          width: 90px;
+          height: 45px;
+          margin: 10px 0;
+     }
+}
+
+
+//Effects all navigation in the hero/header
+nav{
+     ul{
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          li{
+               display: inline-block;
+               padding: 10px 30px 0 0;
+               font-size: 14px;
+               text-transform: uppercase;
+               &:last-child{
+                    padding-right: 0;
+               }
+               @include media(mobile){
+                    padding:10px;
+               }
+               a{
+                    font-weight: 600;
+                    color: #ffffff;
+                    display: block;
+               }
+               &.current-menu-item{
+                    &:before{
+                         content: '';
+                         width: 100%;
+                         height: 2px;
+                         background-color: $colorTextBody;
+                         display: block;
+                    }
+                    a{
+                         color: $colorTextBody !important;
+                         
+                    }
+               }
+          }
+     }
+}
+
+.nav-overlay{
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     z-index: 99;
+     background: #ffffff;
+     padding: 125px 25px;
+     @include transform(translateY(-2000px));
+     @include transition(all 250ms linear);
+     @include media(mobile) {
+          @include transform(translateY(0) translateX(-768px));
+          padding: 0px;
+     }
+     &.active{
+         @include transform(translateY(0px));
+     }
+     .nav-overlay__logo img{
+          position: absolute;
+          top: 25px;
+          left: 25px;
+          width: 146px;
+          @include media(mobile) {
+               top: 10px;
+               left: 10px;
+               width: 80px;
+          }
+     }
+     .nav-overlay__column{
+          margin: 0 40px;
+          > li{
+               width: 15%;
+               float: left;
+               height: 100%;
+               >a{
+                    color: $colorTextBody;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    &:after{
+                         content: '';
+                         background: #eee;
+                         width: 75px;
+                         height: 1px;
+                         display: block;
+                         margin: 10px 0;
+                    }
+               }
+          }
+
+          @include media(tablet) {
+               > li {
+                    width: 23%;
+                    margin:0 20px 40px 20px;
+               }
+          }
+          @include media(mobile) {
+               > li {
+                    width: 100%;
+               }
+          }
+     }
+
+     .nav-overlay__highlight{
+          width: 210px;
+          float: left;
+          margin-right: 40px;
+          padding: 20px 25px;
+          background: rgba($colorPrimary, 0.2);
+          @include media(mobile) {
+               width: 100%;
+          }
+          a{
+               font-weight: 600;
+               text-transform: uppercase;
+          }
+
+          @include media(tablet) {
+               height:100%;
+          }
+     }
+     h3{
+          font-size: 15px;
+     }
+     ul{
+          list-style: none;
+          margin: 0;
+          padding: 0; 
+          font-size: 15px;
+          li{
+               line-height: 30px;
+          }
+     }
+     hr{
+          width: 75px;
+          margin: 10px 0;
+     }
+}
+
+.nav-close{
+     position: fixed;
+     top: 0;
+     right: 0;
+     width: 80px;
+     line-height: 80px;
+     text-align: center;
+     background: $colorPrimary;
+     color: #ffffff;
+     display: none;
+     z-index: 101;
+     @include media(mobile){
+          background: none;
+          color: $colorPrimary;
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+     }
+     &.active{
+          display: block !important;
+     }
+}
+
+
+//Mobile nav that slides in from the side
+.mobile-nav, .global-mobile{
+     @include media(mobile){
+          position: fixed;
+          top:60px;
+          left: 0;
+          z-index: 10;
+          height: 100%;
+          width: 100%;
+          background: #ffffff;
+          overflow: scroll;
+          @include transform(translateX(-768px));
+          @include transition(all 250ms);
+
+          .sub-menu{
+               display: none;
+          }
+          ul{
+               li {
+                    width: 100%;
+                    display: block;
+                    &.current-menu-item{
+                         font-weight: 700;
+                    }
+                    
+                    a{
+                         display: block;
+                         color: $colorPrimary;
+                         width: 100%;
+                         border-bottom: 1px solid #f2f2f2;
+                         padding: 10px 20px;
+                    }
+               }
+          }
+          &.active{
+               @include transform(translateX(0));
+          }
+     }
+     .mobile-title{
+          text-transform: uppercase;
+          font-weight: 600;
+          color: $colorPrimary;
+          padding: 20px 20px 0 20px;
+     }
+}
+
+.global-mobile{
+     z-index: 11;
+     text-transform: uppercase;
+     font-weight: 700;
+}
+
+
+
+
+

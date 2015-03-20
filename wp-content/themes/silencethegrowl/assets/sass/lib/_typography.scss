@@ -1,0 +1,127 @@
+
+
+
+/* _fonts.scss */
+
+@mixin fff($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false ) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: $style;
+
+    src: url('#{$file-path}.eot');
+    src: url('#{$file-path}.eot?#iefix')               format('embedded-opentype'),
+         url('#{$file-path}.woff')                     format('woff'),
+         url('#{$file-path}.ttf')                      format('truetype'),
+         url('#{$file-path}.svg##{$font-family}')      format('svg');
+  
+  }
+}
+
+
+
+// Font Awesome
+@include fff(fontawesome, '../fonts/fontawesome-webfont', normal);
+
+
+
+
+
+
+/* Chrome v33 "invisible text" fix
+================================================== */
+body {
+-webkit-animation-duration: 0.1s;
+-webkit-animation-name: fontfix;
+-webkit-animation-iteration-count: 1;
+-webkit-animation-timing-function: linear;
+-webkit-animation-delay: 0.1s;
+}
+
+@-webkit-keyframes fontfix {
+  from { opacity: 1; }
+  to { opacity: 1; }
+}
+
+/**
+ * Font Settings
+ * Shortened variable names for font families for degradation convenience
+ */
+$default  :  "brandon-grotesque", Helvetica, "Helvetica Neue", sans-serif;
+$serif    :  "adriane", Georgia, serif;
+$fa       :  "FontAwesome";
+
+
+.serif{
+  font-family: $serif;
+}
+
+// _body.scss
+
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  font-family: $default, Helvetica, "Helvetica Neue", Arial, sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  color: $colorTextBody;
+}
+*, *:before, *:after {
+  @include box-sizing(border-box);
+}
+
+
+
+
+
+  
+h2 {
+  font-size:55px;
+  line-height: 55px;
+  font-weight:700;
+  text-transform: uppercase;
+  @include media(mobile) {
+    font-size: 42px;
+    line-height: 42px;
+  }
+}
+
+h3 {
+  font-size:34px;
+  line-height: 40px;
+  font-weight: 100;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+
+p {
+  font-size:21px;
+  line-height: 26px;
+  font-weight: normal;
+  font-family: $default;
+  margin: 0 0 20px;
+
+  &.large{
+    font-size: 34px;
+    line-height: 40px;
+
+  }
+
+}
+
+
+.caption{
+  font-size: 14px;
+  line-height: 16px;
+  color: #999999;
+  text-transform: uppercase;
+}
+
+
+

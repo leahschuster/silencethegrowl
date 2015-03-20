@@ -1,0 +1,89 @@
+
+html, body{
+  height: 100%;
+}
+
+
+/* CONTAINER(S)
+================================================== */
+.container { 
+  position: relative;
+  max-width: 950px; 
+  margin: 0 auto;
+  @include media(tablet) {
+    width: 95%;
+  }
+  @include media(mobile) {
+    width: 100%;
+  }
+}
+.container-small{
+  max-width: 800px;
+}
+
+.container-fluid{
+  max-width: 100%;
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+
+
+
+/* ROW(S)
+================================================== */
+.row {
+  @include clearfix;
+  margin-left:-#{$margin};
+  margin-right:-#{$margin};
+  margin-bottom:20px;
+}
+
+section{
+  padding: 80px 0;
+  position: relative;
+  background: #ffffff;
+  &:first-child{
+    background: transparent;
+  }
+  @include media(mobile) {
+    padding: 30px 0;
+  }
+}
+
+img {
+  width: auto; //This can't be 100%
+}
+@include media(moblet) {
+  img.img-responsive{
+    width: 100%;
+  }
+}
+
+hr{
+  width: 200px;
+  margin: 20px auto;
+  border:none;
+  border-top: 1px solid #cccccc;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li{
+         padding: 5px 0 0;
+         margin: 0;
+    }
+}
+
+
+
+
+//hide all like breaks on mobile
+@include media(moblet) {
+  br{
+    display: none;
+  }
+}

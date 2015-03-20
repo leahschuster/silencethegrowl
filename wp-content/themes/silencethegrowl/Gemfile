@@ -1,0 +1,6 @@
+source "https://rubygems.org"
+
+gem 'guard'
+gem 'sass'
+gem 'compass'
+gem 'guard-compass'

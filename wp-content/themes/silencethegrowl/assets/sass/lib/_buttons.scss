@@ -1,0 +1,70 @@
+/*_buttons.scss*/
+
+.btn, #donation .donately-btn {
+    padding:10px 25px;
+    color: #fff;
+    font-family: $default;
+    font-size:13px;
+    line-height:55px;
+    @include border-radius(2px);
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: $colorPrimary;
+    border: 1px solid transparent;
+    @include transition(all 150ms linear);
+    white-space: nowrap;
+    outline: none;
+    text-decoration: none;
+    display: inline-block;
+    @include media(mobile) {
+      white-space: normal;
+      line-height:1.4em;
+    }
+    
+    &:hover, &:focus{ background-color: darken($colorPrimary, 10%); color: #ffffff;}
+    &:active { @include transform(translateY(5px)); color: #ffffff;}
+    
+    &.btn-icon{
+      text-align: left;
+      padding: 0;
+      width: 200px;
+      i{
+        display: inline-block;
+      }
+
+      span{
+        background-color: darken($colorPrimary, 10%);
+        width: 25%;
+        text-align: center;
+        display: inline-block;
+      }
+      
+    }
+
+    //WHITE
+    &.btn-white { 
+      background-color: #fff;
+      color:$colorSecondary;
+      &:hover, &:focus { background-color:$colorSecondary; color: #ffffff; }
+    }
+
+
+    //YELLOW
+    &.btn-yellow { 
+      background-color: rgba(235,217,141, 0.4);
+      color:darken($colorSecondary, 5%);
+      &:hover, &:focus { background-color: $colorSecondary; color: #ffffff; }
+    }
+
+    
+
+    @include media(mobile) {
+      width:100%;
+      margin: 5px auto;
+
+    }
+ 
+}
+
+
