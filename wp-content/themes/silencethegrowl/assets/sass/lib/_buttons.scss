@@ -1,22 +1,22 @@
 /*_buttons.scss*/
 
-.btn, #donation .donately-btn {
-    padding:10px 25px;
+.btn, #donation .donately-btn, button, .gform_button {
+    padding:0 25px;
     color: #fff;
     font-family: $default;
     font-size:13px;
-    line-height:55px;
-    @include border-radius(2px);
+    line-height:56px;
+    @include border-radius(3px);
     text-transform: uppercase;
     font-weight: 700;
     cursor: pointer;
     background-color: $colorPrimary;
-    border: 1px solid transparent;
     @include transition(all 150ms linear);
     white-space: nowrap;
     outline: none;
     text-decoration: none;
     display: inline-block;
+    border: none;
     @include media(mobile) {
       white-space: normal;
       line-height:1.4em;
@@ -26,19 +26,23 @@
     &:active { @include transform(translateY(5px)); color: #ffffff;}
     
     &.btn-icon{
-      text-align: left;
       padding: 0;
-      width: 200px;
       i{
         display: inline-block;
-      }
+        vertical-align: middle;
+        font-size: 15px;
 
+      }
       span{
-        background-color: darken($colorPrimary, 10%);
-        width: 25%;
+        padding: 0 25px;
         text-align: center;
         display: inline-block;
       }
+
+      .btn-label{
+        background-color: darken($colorPrimary, 10%);
+      }
+  
       
     }
 
@@ -46,15 +50,32 @@
     &.btn-white { 
       background-color: #fff;
       color:$colorSecondary;
+      i{
+        margin-right: 5px;
+      }
       &:hover, &:focus { background-color:$colorSecondary; color: #ffffff; }
     }
 
+    &.btn-blue-light { 
+      background-color: $colorSecondary;
+      color:#ffffff;
+      &:hover, &:focus { background-color:darken($colorSecondary, 5%);}
+    }
 
-    //YELLOW
-    &.btn-yellow { 
-      background-color: rgba(235,217,141, 0.4);
-      color:darken($colorSecondary, 5%);
-      &:hover, &:focus { background-color: $colorSecondary; color: #ffffff; }
+    &.btn-gray { 
+      background-color: $colorGray;
+      color:$colorSecondary;
+      &:hover, &:focus { background-color:darken($colorGray, 5%); }
+    }
+
+    &.btn-square{
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      margin: 3px;
+      i{
+        font-size: 20px;
+      }
     }
 
     

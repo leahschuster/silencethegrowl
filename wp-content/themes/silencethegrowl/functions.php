@@ -254,6 +254,13 @@ require get_template_directory() . '/inc/template-tags.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
+/**
+ * Custom scripts.
+ *
+ * @since Quarter Campaign 1.0 2015
+ */
+require get_template_directory() . '/inc/scripts.php';
+
 
 
 

@@ -23,19 +23,19 @@ input[type='submit']{
 //Most text boxes and text area
 input[type='text'],input[type='email'],textarea,input[type='tel'],input[type='number'], #donation input.donately-text-input{
      background-color: #edf1f4;
-     border: 2px solid #edf1f4;
+     border: 1px solid #dddddd;
      font-size: 18px;
      line-height: 25px;
-     color: #7f8489;
-     height: 52px;
+     color: #434645;
+     height: 44px;
      padding: 0 20px;
-     @include border-radius(7px);
+     @include border-radius(5px);
      @include box-shadow(none);
     //  background-repeat: no-repeat;
     // background-position: right center;
      &:focus{
         outline: none;
-        border-color: $colorPrimary;
+        border-color: $colorSecondary;
         background: #ffffff;
         @include box-shadow(none);
      }
@@ -48,269 +48,72 @@ input[type='text'],input[type='email'],textarea,input[type='tel'],input[type='nu
      }
 }
 
-.form-control{
-     height: 52px;
-     font-style: italic;
-     font-family: $serif;
-}
-
-.label-inline{
-     cursor: pointer;
-     position: absolute;
-     top:0;
-     left: 25px;
-     z-index: 1;
-     line-height: 52px;
-     ~ input:last-of-type, ~ input:first-of-type{
-          padding-left: 35px;
-     }
-}
-
-//Form Title
-.gform_title, .gsection_title{
-  font-family: $default;
-  text-transform: none;
-  font-weight: 100;
-  margin: 20px auto;
-  font-size: 35px;
-  &:after{
-    display: none;
-  }
-
-  @include media(mobile) {
-    font-size:28px;
-  }
-}
 
 
-//Description under label
-.gfield_description{
-  font-family: $serif;
-  margin:5px 0 15px;
-}
-
-//First and Last Name
-.ginput_left, .ginput_right{
-  width: 49%;
-  label{
-    font-weight: 100;
-  }
-}
-//Full input
-.ginput_full{
-  width: 100%;
-  float: left;
-}
-
-
-//first name
-.ginput_left{
-  float: left;
-}
-//last name
-.ginput_right{
-  float: right;
-}
-
-//fieldsets - kinda
-.gfield{
-  margin-bottom: 30px;
-  @include clearfix;
-}
-
-//textarea
-.gfield .textarea{
-  min-height: 200px;
-  @include media(mobile){
-    min-height: 0px;
-  }
-}
-
-//Checkboxes + radio buttons
-.gfield_checkbox, .gfield_radio{
-  li{
-    display: inline-block;
-    padding-right: 20px;
-    label{
-      font-weight: 100;
-      cursor: pointer;
-    }
-  }
-}
-
-input[type=checkbox], input[type=radio]{
-  display:none;  /* to hide the checkbox itself */
- + label:before {
-    font-family: FontAwesome;
-    display: inline-block;
-    color: $colorPrimary;
-  }
-  + label:before { width: 22px; } /* space between checkbox and label */
-}
-
-//checkboxes
-input[type=checkbox] { 
-  + label:before { content: "\f096"; } /* unchecked */
-  &:checked + label:before { content: "\f046"; } /* checked */
-}
-
-//radio buttons
-input[type=radio] { 
-  + label:before { content: "\f1db"; } /* unchecked  */
-  &:checked + label:before { content: "\f192"; } /* checked */
-}
-
-//select dropdown
-.gfield_select{
-  outline: none;
-}
-
-
-//Submit button
-.gform_button{
-     background: $colorPrimary;
-     color: #ffffff;  
-     border: none;   
-     line-height: 20px;
-     font-weight: normal;
-     line-height: 20px;
-     padding: 15px 25px;
-     @include border-radius(40px);
-     display: inline-block;
-     &:hover{
-          background-color: darken($colorPrimary, 7%);
-     }
-}
-
-
-//ERROR STATES
-.gfield_error{
-  > label{
-    color: red;
-  }
-  input[type='text'],input[type='email'],textarea,input[type='number']{
-    border-color: red;
-  }
-
-}
-
-.validation_error, .validation_message{
-  color: red;
-}
-
-
-//CONFIRMATION MESSAGE
-.gform_confirmation_message{
-  font-size: 24px;
-  text-align: center;
-  color: $colorPrimary;
-}
 
 
 .email-signup-form{
-     form {
-      position: relative;
-          ul li{
-               width: 49%;
-               display: inline-block;
-               input{
-                  border-color: #ffffff;
-                  padding-left: 50px;
-               }
-          }
-          .validation_message, .validation_error{
-            display: none;
-          }
-          .gform_button{
-               position: absolute;
-               top: -6px;
-               right: 0;
-               width:91px;
-               height: 91px;
-               @include border-radius(90px);
-               padding: 0;
-          }
-          .gfield_error{
-            input{
-              border-color: red;
-            }
-          }
+  form {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
 
-          label{
-               width: 51px;
-               line-height: 51px;
-               text-align: center;
-               position: absolute;
-               font-size: 0px;
-               &:before{
-                font-family: 'fontawesome';
-                display: block;
-                font-size: 20px;
-                font-weight: 100;
-
-               }
-          }
-     }
-     .email-first-name label{
-      &:before{
-        content: '\f007';
+    .gform_body input{
+      background: #ffffff;
+      padding-left: 50px;
+    }
+    .validation_message, .validation_error{
+      display: none;
+    }
+    .gform_button{
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      background: $colorSecondary;
+      color: #ffffff;
+      line-height: 40px;
+      &:hover{
+        background: darken($colorSecondary, 5%);
       }
-     }
-     .email-address label{
-      &:before{
-        content: '\f003';
+
+    }
+    .gform_heading{
+      font-size: 16px;
+      color: #999999;
+      margin: 10px 0px 20px;
+    }
+    .gfield_error{
+      input{
+        border-color: red;
       }
-     }
-     .gform_confirmation_message{
-      text-align: center;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: $colorSecondary;
-      position: relative;
-     }
-
-     @include media(mobile) {
-      form{
-        ul li{
-          width:90%;
-          margin-bottom:0;
-        }
-        .gform_button{
-          top: 62px;
-        }
-      }
-     }
-}
-
-
-
-.gform_wrapper{
-     ul{
-          list-style: none;
-          margin: 0;
-          padding: 0;
-     }
-}
-
-//UI DATEPICKER
-.ui-datepicker{
-  background: #ffffff;
-  border: 1px solid #dddddd;
-  padding: 5px;
-  td{
-    padding: 5px;
-  }
-  .ui-datepicker-next{
-    float: right;
-  }
-  table{
-    margin-top: 8px;
-    border-top: 1px solid #dddddd;
-    th{
-      padding-top: 8px;
     }
   }
+  .email-address label{
+    width: 44px;
+    line-height: 44px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    font-size: 0px;
+    &:before{
+      font-family: 'fontawesome';
+      display: block;
+      font-size: 20px;
+      font-weight: 100;
+      color: $colorSecondary;
+      content: '\f0e0';
+    }
+  }
+  //CONFIRMATION MESSAGE
+  .gform_confirmation_message{
+    text-align: center;
+    color: $colorSecondary;
+  }
 }
+
+
+
+
 
 //LOADING SPINNER
 $spinnerSpeed: 2s;

@@ -1,0 +1,130 @@
+<section id="donation" class="donate">
+     <div class="container">
+          <div class="row">
+          <div class="col-md-6">
+               <p>A donation of $5 provides 1 backpack. Generous donors like you have already provided 386 children with backpacks!</p>
+               <!--donation form-->
+                <div class="donation-form row">
+                    <form class="donately-validation" id="intervalDonateForm" method="post">
+                         
+                         <fieldset class="row input-price-options">
+                              <ul class="gfield_radio">
+                                   <li id="priceInterval1" class="col-xs-4">
+                                        <input type="radio" name="donate-amount" value="5" id="choice_6_0" tabindex="1">
+                                        <label for="choice_6_0">$5</label>
+                                   </li>
+                                   <li id="priceInterval2" class="col-xs-4">
+                                        <input type="radio" name="donate-amount" value="25" checked="true" id="choice_6_1" tabindex="2">
+                                        <label for="choice_6_1">$25</label>
+                                   </li>
+                                   <li id="priceInterval3" class="col-xs-4">
+                                        <input type="radio" name="donate-amount" value="100" id="choice_6_2" tabindex="3">
+                                        <label for="choice_6_2">$100</label>
+                                   </li>
+                        
+                              </ul>
+                        
+                              
+                         </fieldset>
+<!--                      <fieldset class="row">
+                              <div class="col-xs-12">
+                                   <label class="label-inline" for="donation_amount">$</label>
+                                   <input name="donation_amount" class="required" id="donationAmount" type="number"  tabindex="5" onclick="this.value='';"  value="40" required>
+                              </div>
+                         </fieldset>
+                         <fieldset class="row radio-donation">
+                              <ul class="gfield_radio col-xs-12" id="input_2_4">
+                                   <li>
+                                        <input name="recurring" type="radio" value="0" checked="checked" id="choice_4_0" tabindex="6">
+                                        <label for="choice_4_0">One time</label>
+                                   </li>
+                                   <li>
+                                        <input name="recurring" type="radio" value="1" id="choice_4_1" tabindex="7">
+                                        <label for="choice_4_1">Monthly</label>
+                                   </li>
+                              </ul>
+                         </fieldset> -->
+
+          
+                              
+          
+                    </form>
+
+                    
+                    <script src="https://www.dntly.com/assets/js/v1/form.js" type="text/javascript" async="async" data-donately-ssl="true" data-donately-amount="25" data-donately-address="true" data-donately-id="2835" data-donately-campaign-id="1834"></script>
+              
+                    <button id="donate_card_info" class="btn btn-icon"><span class="btn-label"><i class="fa fa-credit-card"></i></span> <span>Enter Payment Info</span></button>
+               </div>
+          </div>
+          <div class="col-md-6">
+               <p>PepsiCo is donating $1 for every 3 shares across your networks. Same goes for every 3 follows of UWMD’s social channels!</p>
+               <p>Your $25 donation provides 5 backpacks to a child in need. Given monthly, you’d provide enough food to care for 5 children all summer long.</p>
+          </div>
+     </div>
+ 
+     </div>
+</section>
+
+
+
+<section class="uwd-silencethegrowl">
+     <div class="container text-center">
+
+          <!-- <p>Instagram count <span class="instagram_count"> </span></p>
+          <p>Twitter followers <span class="twitter_count"> </span></p> -->
+<!--           <div class="corner">
+               <a class="icons-uwd-icon block"></a>
+               <hr>
+               <a class="icons-silence-the-growl-logo logo block"></a>
+               <hr>
+               <p class="caption">A $5 solution to end summer hunger. Give a kid their summer back <span class="blue-light">(pack)<span></p>
+               
+               <a href="#donate" class="btn btn-icon"><span class="btn-label"><i class="icons-give"></i></span> <span>Give Now</span></a>
+               
+               <p class="caption">Every 3 shares buys another backpack</p>
+               
+               <div class="btn-group">
+                    <a href="#" class="btn btn-white"><i class="fa fa-twitter"></i> Tweet</a>
+                    <a href="#" class="btn btn-white"><i class="fa fa-facebook"></i> Share</a>
+               </div>
+          </div> -->
+          <span class="icons-girl-with-lunch inline"></span>
+          <h2>1.2 Million Children </h2>
+          <p>across North Texas qualify for free or reduced-price meals during the school year.</p>
+          
+          <div class="blue-light">
+               <span class="icons-backpack inline"></span>
+               <span class="uppercase light">When school lets out for the summer... </span>
+          </div>
+          
+          <div class="row">
+               <div class="col-md-6">
+                    <span class="icons-groceries inline"></span>
+                    <p>Meal sites pick up where schools left off and provide these kids with breakfast and lunch during weekdays. </p>
+               </div>
+
+               <div class="col-md-6">
+                    <span class="icons-girl-in-room inline"></span>
+                    <p>But what happens when kids can’t get to those sites during the week? And what happens when kids are home over the weekend?</p>  
+               </div>
+          </div>
+          
+          <p class="large">Help prevent summer hunger by providing kids with backpacks filled with healthy and easy-to-prepare food. Together, we can silence their growl with full backpacks, full tummies, and full <span class="blue-light">(of fun)</span> summers.</p>
+          
+          <p class="blue-light uppercase">Brought to you by<br/> <span class="bold">United Way</span></p>
+          
+         
+
+     </div>
+</section>
+
+
+
+<!-- <div id="backpack_scroll" class="backpack"></div> -->
+
+<footer class="bg-gray text-center">
+     <div class="container">
+          <h3>Welcome to <span class="bold">UNITE</span></h3>
+          <p>We're re-inventing the United Way you think you know. Get plugged in to all the exciting things we have planned.</p>
+     </div>
+</footer>
