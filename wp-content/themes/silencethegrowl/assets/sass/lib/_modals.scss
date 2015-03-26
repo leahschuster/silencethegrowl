@@ -7,7 +7,7 @@
   width:100%;
   height:100%;
   cursor:pointer;
-  background: rgba(0,0,0, .8);
+  background: rgba(255,255,255, .8);
   /* TRANSITION */
   @include transition(all 100ms linear);
   z-index:0;
@@ -26,20 +26,13 @@
 ================================================== */
 .modal {
   position:fixed;
-  height:auto;
-  //left:50%;
-  //top:50%; 
-  // background-color:$modal-bg-color;
-  background-color: transparent;
-  /* DEFAULT - same as .medium */
-  //width:500px;
-  //margin-left:-250px;
   width:60%;
   height:auto;
   min-width:600px;
   min-height:490px;
-  text-align:center;
   margin:0 auto;
+  right: 0;
+  left: 0;
   //padding:30px;  
   /* BOX SHADOW */
   @include box-shadow(0px 0px 7px -3px rgba(black, 0.15));
@@ -60,35 +53,16 @@
     visibility: visible;
     top:10%;
     bottom:10%;
-    background:#fff;
     @include opacity(1);
   }
 
-  &.small   {
-    width:300px;margin-left:-150px;
-  }
-  &.medium  {
-    width:550px;margin-left:-250px;
-  }
-  &.large   {
-    width:650px;
-    //margin-left:-325px;
-    
-    @include media(tablet) {width: 90%; margin-left: -45%;}
-    @include media(mobile) {width: 90%; margin-left: -45%;}
-  }
 
-  &.small, &.medium, &.large {
-    @include media(tablet) {width: 90%; margin-left: -45%;}
-    @include media(mobile) {width: 90%; margin-left: -45%;}
-  }
 
   .embed-container { 
-    // position: relative; 
-    // padding-bottom: 56.25%; 
-    // height: 0; 
-     overflow: hidden; 
-     max-width: 100%; 
+    position: relative; 
+    padding-bottom: 56.25%; 
+    height: 0; 
+    max-width: 100%; 
   } 
   .embed-container iframe, .embed-container object, .embed-container embed { 
     position: absolute; 
@@ -96,26 +70,23 @@
     left: 0; 
     width: 100%; 
     height: 100%; 
-    padding: 40px;
-
-    @include media(mobile) {
-      padding: 30px 0 0 0;
-    }
   }
 
 
   // BUTTON (.modal-close)
   button {
     position:absolute;
-    top:2px;
+    top:3px;
     right:3px;
     z-index:1100;
     //@include button-empty();
     font-size:initial;
     cursor: pointer;
     border:none;
-    background:none;
-    @include opacity(.9);
+    background:#ffffff;
+    @include opacity(.8);
+    padding: 0 15px;
+    line-height: 44px;
 
     &:before {
       font-family:"fontawesome";
@@ -126,34 +97,5 @@
     &:hover { @include opacity(1); }
   }
   
-  header, main, footer {width:100%;height:auto;}
-  
-  // HEADER (.modal-header)
-  header {
-    padding:17px 20px 13px 20px;
-    line-height:1;
-    font-size:em(17px);
-    text-transform: uppercase;
-    font-weight:bold;
-  }
-
-  // MAIN (.modal-body)
-  .modal-body {
-    font-size:em(16px);
-    font-family:$serif;
-    background-color: transparent;
-    padding:15px 20px;
-  }
-
-  // FOOTER (.modal-footer)
-  footer {
-    padding:0px 20px 20px 20px;
-  }
-
-  @include media(moblet) {
-    width:100%;
-    //padding:40px 0 0 0;
-    min-width:100%
-  }
 }
 

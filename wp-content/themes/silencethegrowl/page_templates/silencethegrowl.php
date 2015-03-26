@@ -29,19 +29,20 @@ Template Name: Silence the Growl
                <p class="caption">Every 3 shares buys another backpack</p>
                
                <div class="btn-group">
-                    <a href="#" class="btn btn-white"><i class="fa fa-twitter"></i> Tweet</a>
-                    <a href="#" class="btn btn-white"><i class="fa fa-facebook"></i> Share</a>
+                    <a data-url="http://twitter.com/intent/tweet?text=<?php echo the_title(); echo get_permalink(); ?>" class="btn btn-white share-pop"><i class="fa fa-twitter"></i> Tweet</a>
+                    <a data-url="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink(); ?>" class="btn btn-white share-pop"><i class="fa fa-facebook"></i> Share</a>
                </div>
           </div>
      </div>
 </div>
 
 <div class="video">
-     <a href="#" class="bold btn-watch"><span class="btn btn-white btn-circle"><i class="fa fa-play"></i></span>WATCH</a>
+     <a href="#"  data-id="#video_overlay" class="bold btn-watch modal-trigger"><span class="btn btn-white btn-circle"><i class="fa fa-play"></i></span>WATCH</a>
      <div class="bg-img">
           <img src="//s3-us-west-2.amazonaws.com/uwd-assets/video-screenshot.jpg" />
      </div>
 </div>
+
 
 <!--Content-->
 <section class="info">
@@ -111,13 +112,14 @@ Template Name: Silence the Growl
                <div class="col-md-4 text-center">
                     <p>PepsiCo is donating $1 for every 3 shares across your networks. Same goes for every 3 follows of UWMD’s social channels!</p>
                     <p class="uppercase small bold mb10 mt40">Share</p>
-                    <a href="#" class="btn btn-blue-light btn-square"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="btn btn-blue-light btn-square"><i class="fa fa-facebook"></i></a>
+                    <a class="btn btn-blue-light btn-square share-pop" data-url="http://twitter.com/intent/tweet?text=<?php echo the_title(); echo get_permalink(); ?>"><i class="fa fa-twitter"></i></a>
+                    <a class="btn btn-blue-light btn-square share-pop" data-url="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink(); ?>" class="btn btn-white share-pop"><i class="fa fa-facebook"></i></a>
+
 
                     <p class="uppercase small bold mb10 mt40">Follow</p>
-                    <a href="#" class="btn btn-gray btn-square"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="btn btn-gray btn-square"><i class="fa fa-facebook"></i></a>
-                    <a href="#" class="btn btn-gray btn-square"><i class="fa fa-instagram"></i></a>
+                    <a href="http://twitter.com/intent/follow?source=followbutton&variant=1.0&screen_name=UnitedWayDallas" class="btn btn-gray btn-square"><i class="fa fa-twitter"></i></a>
+                    <a href="http://www.facebook.com/unitedwaydallas" class="btn btn-gray btn-square"><i class="fa fa-facebook"></i></a>
+                    <a href="http://www.instagram.com/unitedwaydallas/" class="btn btn-gray btn-square"><i class="fa fa-instagram"></i></a>
                
                </div>
           </div>
@@ -136,9 +138,24 @@ Template Name: Silence the Growl
      <img src="/wp-content/themes/silencethegrowl/assets/img/backpack.png" alt="" />
 </div>
 
+</div><!-- .site-content -->
+
+<div id="modal">
+     <div class="modal" id="video_overlay">
+          <button class="modal-close"></button>
+
+          <div class='embed-container'>
+               <!-- vimeo video -->         
+               <div class="lazyload" data-video-id="119095457" data-video-service="vimeo"></div>
+          </div> 
+     </div>
+</div>
+
+<?php wp_footer(); ?>
+
+
+</body>
+</html>
 
 
 
-
-
-<?php get_footer(); ?>

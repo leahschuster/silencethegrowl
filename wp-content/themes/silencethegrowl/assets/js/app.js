@@ -58,6 +58,7 @@ var App;
         App.scroll();
         App.donate();
         App.modals();
+        App.lazyLoadVideo();
         App.konamiCode();
     
     };
@@ -89,7 +90,12 @@ var App;
         //     $('.global-mobile').removeClass('active');
         // }); 
 
-       
+        // sharePop function for social sharing
+        $(document).delegate('.share-pop', 'mouseup touchstart', function(event) {
+            event.preventDefault();
+            console.log('do this');
+            window.open( $(this).data('url'), "myWindow", "status = 1, height = 500, width = 500, resizable = 0")
+        });
 
     };
 
@@ -159,6 +165,7 @@ var App;
     /* MODALS 
         ================================================== */
         App.modals = function() {
+            console.log('trigger modals');
 
           var modals            = App.el.modal,
               modal_bay         = App.el.modal_bay,
@@ -223,6 +230,53 @@ var App;
         };
 
 
+        /**
+         * Lazy load a video
+         *
+         * @markup <div class="lazyload" data-video-id="a4kiasd9" data-video-service="youtube"></div>
+         *
+         * @usage In the modal event binding, fire a click event on `.lazyload`, ex:
+         *
+         * $(this).find('.lazyload').click()
+         */
+        App.lazyLoadVideo = function() {
+
+            $('.lazyload').click (function (event) {
+                var $this           = $(this),
+                    video_id        = $this.data('video-id'),
+                    video_service   = $this.data('video-service'),
+                    width           = $this.width(),
+                    height          = $this.height();
+
+                    // console.log(width, height);
+
+                // embed code builder function
+                function buildEmbed(service, id) {
+                    if (service === 'youtube') {
+                        var embed = '<iframe width="'+width+'" height="'+height+'" src="//www.youtube.com/embed/'+video_id+'?autoplay=1" frameborder="0" allowfullscreen></iframe>';
+                        return embed;
+                    }
+                    if (service === 'vimeo') {
+                        var embed = '<iframe src="//player.vimeo.com/video/'+video_id+'?title=0&amp;autoplay=1&amp;byline=0&amp;portrait=0&amp;badge=0" width="'+width+'" height="'+height+'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+                        return embed;
+                    }
+                }
+
+                // build the embed code
+                var embed_code = buildEmbed(video_service, video_id);
+
+                // if iframe doesnt exists
+                if ( $this.find('iframe').length <= 0 ) {
+                    $this.append( embed_code )
+                } else {
+                    // if it does, remove it first
+                    $this.find('iframe').remove()
+                    $this.append( embed_code )
+                }
+            });
+        }
+
+
     /**
      * Konami Code
      *
@@ -250,6 +304,7 @@ var App;
             }
         })
     }
+
 
      /**
      * Helpers
@@ -422,10 +477,10 @@ var App;
      *
      */
      $(document).ready(function(){
-        $('html, body').scrollTop(0);
-       
+
 
         App.init();
+
 
 
         // $(function() {
@@ -660,6 +715,7 @@ var App;
     });
 
 
+
   
 
     /**
@@ -668,7 +724,11 @@ var App;
      * 
      */
 
-    (function() { })();
+    (function() { 
+
+   
+
+    })();
 
 
 
