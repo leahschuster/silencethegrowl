@@ -16,15 +16,18 @@ Template Name: Silence the Growl
           </div>
           
           <!--Silence the Growl logo -->
-          <a href="/" class="icons-silence-the-growl-logo logo block"></a>
-          <hr>
-          <p class="caption">A $5 solution to end summer hunger. Give a kid their summer back <span class="blue-light">(pack)<span></p>
-          
+          <a href="/" class="logo">
+               <img src="/wp-content/themes/silencethegrowl/assets/img/silence-the-growl-logo.png" alt="Silence the Growl">
+          </a>
           <!--Fade on scroll -->
           <div class="fade-content">
-               <a href="#donate" class="btn btn-icon"><span class="btn-label"><i class="icons-give"></i></span> <span>Give Now</span></a>
+               <hr>
+               <p class="caption">A $5 solution to end summer hunger. Give a kid their summer back <span class="blue-light">(pack)<span></p>
+          
+          
+               <a href="#donate" class="btn btn-icon mb20"><span class="btn-label"><i class="icons-give"></i></span> <span>Give Now</span></a>
                
-               <p class="caption">Every 3 shares buys another backpack</p>
+               <p class="caption mt40 mb10">Every 3 shares<br/> buys another backpack</p>
                
                <div class="btn-group">
                     <a data-url="http://twitter.com/intent/tweet?text=<?php echo the_title(); echo get_permalink(); ?>" class="btn btn-white share-pop"><i class="fa fa-twitter"></i> Tweet</a>
@@ -46,11 +49,14 @@ Template Name: Silence the Growl
 <section class="info">
      <div class="container text-center">
           <span class="icons-girl-with-lunch inline"></span>
-          <h2>1.2 Million Children </h2>
-          <p>across North Texas qualify for free or reduced-price meals during the school year.</p>
+          <div class="bg-white">
+               <p class="mb0 large">More than</p>
+               <h2>1.2 Million Children </h2>
+               <p class="large">across North Texas qualify for free or reduced-price<br/> meals during the school year.</p>
+          </div>
 
-          <div class="blue-light">
-               <span class="icons-calendar block mb20"></span>
+          <div class="blue-light calendar-block">
+               <span class="icons-calendar block mb10"></span>
                <span class="uppercase light">When school lets out for the summer... </span>
           </div>
 
@@ -66,12 +72,12 @@ Template Name: Silence the Growl
                </div>
           </div>
 
-          <p class="large"> 
+          <p class="large mt40"> 
                <span class="icons-backpack block mb10"></span>
                Help prevent summer hunger by providing kids with backpacks filled with healthy and easy-to-prepare food. Together, we can silence their growl with full backpacks, full tummies, and full <span class="blue-light">(of fun)</span> summers.
           </p>
 
-          <p class="blue-light uppercase small">Brought to you by<br/> <span class="bold">United Way</span></p>
+          <p class="blue-light uppercase small mt40">Brought to you by<br/> <span class="bold">United Way</span></p>
      </div>
 </section>
 
@@ -124,17 +130,19 @@ Template Name: Silence the Growl
      </div>
 </div>
 
+<div id="backpack_scroll">
+     <div class="backpack-image"></div>
+</div>
 
 <footer class="bg-gray text-center email-signup-form">
+     <a id="closeFooter" class="fa fa-close"></a>
      <div class="container">
           <h3>Welcome to <span class="bold">UNITE</span></h3>
           <?php gravity_form('Email Sign Up', $display_title=false, $display_description=true, $display_inactive=false, $field_values=null, $ajax=true, $tabindex=100); ?>
      </div>
 </footer>
 
-<div id="backpack_scroll">
-     <div class="backpack-image"></div>
-</div>
+
 
 </div><!-- .site-content -->
 

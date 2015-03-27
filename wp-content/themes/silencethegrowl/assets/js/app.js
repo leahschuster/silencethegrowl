@@ -51,7 +51,6 @@ var App;
      *
      */
     App.init = function(){
-        App.initScripts();
         App.helpers.userAgentDetection();
         App.helpers.isUserAgent();
         App.events();
@@ -59,21 +58,9 @@ var App;
         App.donate();
         App.modals();
         App.lazyLoadVideo();
-        App.konamiCode();
     
     };
-  
 
-    /**
-     * Initialize Scripts
-     *
-     */
-    App.initScripts = function(){
-
-        // WOW.js
-        if ( !window.WOW ) { return false; } else { new WOW().init(); }
-
-    }
 
     /**
      * Event Bindings
@@ -93,10 +80,14 @@ var App;
         // sharePop function for social sharing
         $(document).delegate('.share-pop', 'mouseup touchstart', function(event) {
             event.preventDefault();
-            console.log('do this');
             window.open( $(this).data('url'), "myWindow", "status = 1, height = 500, width = 500, resizable = 0")
         });
 
+        //Close Footer
+         $(document).delegate('#closeFooter', 'mouseup touchstart', function(event) {
+              event.preventDefault();
+              $('footer').addClass('slideDown');
+         });
     };
 
 
@@ -146,8 +137,8 @@ var App;
          $(document).delegate('#donate_card_info', 'mouseup touchstart', function(event) {
               event.preventDefault();
               $('#donation').addClass('step-two');
+              $('footer').addClass('slideDown');
          }); 
-
 
 
          //remove selected state of Price Interval box
@@ -165,7 +156,6 @@ var App;
     /* MODALS 
         ================================================== */
         App.modals = function() {
-            console.log('trigger modals');
 
           var modals            = App.el.modal,
               modal_bay         = App.el.modal_bay,
@@ -277,35 +267,6 @@ var App;
         }
 
 
-    /**
-     * Konami Code
-     *
-     */
-    App.konamiCode = function() {
-
-        var secret = '38403840373937396665',
-            input  = '',
-            timer;
-
-        $(document).keyup(function (e) {
-
-            input += e.which;
-
-            clearTimeout(timer);
-
-            timer = setTimeout(function() {
-                input = '';
-            }, 500);
-
-
-            if( input == secret ) {
-                // do stuff here
-                if ( App.config.debug ) { console.log('konami code fired!'); }
-            }
-        })
-    }
-
-
      /**
      * Helpers
      * Various helper functions for user agent detection and cross browser compatibility
@@ -377,37 +338,7 @@ var App;
             }
         },
 
-        /**
-         * preloadImages
-         * Preload images by passing in array of url strings
-         * @param  {Array} array
-         */
-        preloadImages: function(array, callback) {
 
-            var promises = [];
-
-            for ( var i = 0; i < array.length; i++ ) {
-              (function (url, promise) {
-                var img = new Image();
-
-                img.onload = function() {
-                  promise.resolve();
-                };
-
-                img.src = url;
-
-                console.log('%cPreloaded', 'color:#4f89d1;', url);
-
-              })(array[i], promises[i] = $.Deferred());
-              
-            }
-
-            $.when.apply($, promises).done(function() {
-              callback();
-            });
-
-
-        },
 
 
         /**
@@ -529,13 +460,15 @@ var App;
     //ON WINDOW LOAD
     $(window).load(function(){
 
-        //Always load at top of page
-
        
         //Add video to homepage
         //This is so it won't load on mobile and hopefully be super fast!
         if($(window).width() >= 768){
             //$('.bg-img').append('<video autoplay loop poster="//s3-us-west-2.amazonaws.com/uwd-assets/video-screenshot.jpg" id="bgvid" class="bg-video hidden-xs"><source src="//s3-us-west-2.amazonaws.com/uwd-assets/uwd-video-small.mp4" type="video/mp4"><source src="//s3-us-west-2.amazonaws.com/uwd-assets/uwd-video.ogv" type="video/ogv"><source src="//s3-us-west-2.amazonaws.com/uwd-assets/uwd-video.webm" type="video/webm"></video>');
+        } 
+
+        if($(window).width() < 1200){
+            $('body').addClass('no-animation');
         }
 
 
@@ -558,8 +491,6 @@ var App;
         }
 
         $('.info').css({'padding-top': 200 + $(window).height() + 'px'});
-
-
     });
 
 
@@ -575,8 +506,7 @@ var App;
             topOfInfo = $(window).height(),
             bottomOfInfo =  $('.info').offset().top + $('.info').outerHeight(),
             backpackScale = (1151 *  (1 - documentScrollPercent)) + 300;
-
-            console.log(topOfInfo, $(window).scrollTop(), $('#corner').hasClass('scale-up'))       
+     
 
             if (bottomOfInfo > $(window).scrollTop()) { 
                 //animateCorner();
@@ -593,33 +523,10 @@ var App;
                 $('.corner').removeClass('scale-up');
             }
             if (topOfInfo > $(window).scrollTop() && $('#corner').hasClass('scale-down')) { 
-               $('.corner').addClass('scale-up');
+                $('.corner').addClass('scale-up');
                 $('.corner').removeClass('scale-down');
             }
-       
-       
-        //if($(window).scrollTop() > $(window).height()){
-            
-            //Move gray corner up    
-            // function animateCorner(){
-            //     $('.corner').css({
-            //         'background-position-y': cornerPositionY,
-            //         'background-position-x': cornerPositionX
-            //     });
-
-            //     //fade
-            //     $('.fade-content').css({'opacity': 1 - (documentScrollPercent*4)});
-
-            //      //content
-            //     $('.corner-inner').css({
-            //         'top': -(documentScrollPercent) + currentCornerPositionY + 'px',
-            //         'left': -(documentScrollPercent) + currentCornerPositionX + 'px'
-
-            //     });
-               
-            // }
-
-
+    
 
             //Scroll Backpack Up
             function scrollBackpack(){
@@ -637,25 +544,9 @@ var App;
             function shrinkBackpack(){
                 $('#backpack_scroll').addClass('shrink-backpack');
 
-                // $('#backpack_scroll img').css({
-                //     '-webkit-transform': 'scale(0.3)',
-                //     '-moz-transform': 'scale(0.3)',
-                //     '-ms-transform': 'scale(0.3)',
-                //     '-o-transform': 'scale(0.3)',
-                //     'transform': 'scale(0.3)'
-                // });
-                // $('#backpack_scroll').css({
-                //     'bottom': 0,
-                //     '-webkit-transform': 'translate3d(0, 0,0)',
-                //     '-moz-transform': 'translate3d(0, 0,0)',
-                //     '-ms-transform': 'translate3d(0, 0,0)',
-                //     '-o-transform': 'translate3d(0, 0,0)',
-                //     'transform': 'translate3d(0, 0,0)'
-                // });
-
                 setTimeout(fadeInDonateForm, 1500);
 
-                //setTimeout(slideUpFooter, 2500);
+                setTimeout(slideUpFooter, 2500);
             }
 
             //Fade in donate form
@@ -666,20 +557,9 @@ var App;
             }
 
             function slideUpFooter(){
-                $('footer').css({
-                    '-webkit-transform': 'translateY(0)',
-                    '-moz-transform': 'translateY(0)',
-                    '-ms-transform': 'translateY(0)',
-                    '-o-transform': 'translateY(0)',
-                    'transform': 'translateY(0)'
-                });
+                $('footer').addClass('slideUp');
             }
-
-            if (documentScrollPercent == 1) {
-                
-            }
-          
-        //};
+           
     });
 
     // left: 37, up: 38, right: 39, down: 40,
@@ -738,10 +618,7 @@ var App;
 
     (function() { 
 
-   
-
     })();
-
 
 
 
@@ -782,16 +659,7 @@ var App;
         
         
 
-    }, false);
-
-
-
-
-
-    
+    }, false);  
 
 })(jQuery);
 };
-
-
-

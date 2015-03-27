@@ -26,6 +26,9 @@
      .fade-content{
           @include transition(opacity 1s ease-in-out);
      }
+     .logo img{
+          @include transition(width 1s);
+     }
 
      &.scale-up{
           background-position: 0 0;
@@ -40,15 +43,20 @@
                 @include opacity(1);
                 @include transition-delay(1s);
           }
-
-
+          .logo img{
+               width: 165px;
+          }
      }
 
      &.scale-down{
-          background-position: -75px -500px;
+          background-position: -165px -600px;
           .corner-inner{
-               top:-44px;
-               left: 0px;
+               top:-54px;
+               left: -25px;
+          }
+
+          .logo img{
+               width: 120px;
           }
 
           .fade-content{
@@ -103,12 +111,22 @@
 .info{
      padding-top: 1000px;
      padding-bottom: 100px;
+
+     .icons-girl-with-lunch{
+          margin-bottom: -78px;
+     }
+     .calendar-block{
+          width: 125px;
+          margin:  100px auto 0;
+          line-height: 20px;
+     }
 }
 
 .video{
      position: absolute;
-     right: 34px;
-     top: 34px;
+     right: 0;
+     top: 0;
+     border: 34px solid #ffffff;
      z-index: 1;
      .btn-watch{
           position: absolute;
@@ -347,6 +365,23 @@ footer{
 
      h3{
           margin-bottom: 0px;
+     }
+
+     .fa-close{
+          position: absolute;
+          cursor: pointer;
+          color: $colorSecondary;
+          right: 20px;
+          top:20px;
+          text-decoration: none;
+          font-size: 20px;
+     }
+
+     &.slideUp{
+          @include transform(translateY(0px));
+     }
+     &.slideDown{
+          @include transform(translateY(215px));
      }
      
 }

@@ -30,6 +30,11 @@
   background: $colorGray;
 }
 
+.bg-white{
+  background: #ffffff;
+  position: relative;
+}
+
 .table {
   display:table;
   width:100%;
@@ -45,7 +50,7 @@
 .semibold { font-weight: 600; }
 .light { font-weight: 300; }
 
-.small{ font-size: 80%; line-height: 1em; }
+.small{ font-size: 80%; line-height: 1.1em; }
 
 
 .mp0 {margin:0;padding:0;}
