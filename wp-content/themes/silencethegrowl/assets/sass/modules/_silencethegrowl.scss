@@ -1,3 +1,6 @@
+
+
+
 .corner{
      background-image: url('/wp-content/themes/silencethegrowl/assets/img/corner.png');
      position: fixed;
@@ -9,18 +12,53 @@
      z-index: 99;
      background-repeat: no-repeat;
      pointer-events: none;
+     @include transition(background-position 1s ease-in-out 1s);
 
      .corner-inner{
           position: fixed;
-          left: 40px;
-          top: 40px;
           width: 235px;
           pointer-events: all;
+          @include transition(all 1s ease-in-out 1s);
      }
      .caption{
           margin: 25px 0;
      }
+     .fade-content{
+          @include transition(opacity 1s ease-in-out);
+     }
+
+     &.scale-up{
+          background-position: 0 0;
+          @include transition-delay(0s);
+
+          .corner-inner{
+               top:40px;
+               left: 70px;
+               @include transition-delay(0s);
+          }
+          .fade-content{
+                @include opacity(1);
+                @include transition-delay(1s);
+          }
+
+
+     }
+
+     &.scale-down{
+          background-position: -75px -500px;
+          .corner-inner{
+               top:-44px;
+               left: 0px;
+          }
+
+          .fade-content{
+                @include opacity(0);
+          }
+
+     }
 }
+
+
 
 #backpack_scroll{
      position: fixed;
@@ -30,10 +68,26 @@
      z-index: 100;
      text-align: center;
      pointer-events: none;
-     @include transition(all 250ms);
+     @include transition(bottom 1s ease-in-out);
      
-     img{
-          @include transition(transform 1s);
+     .backpack-image{
+          background-image: url('/wp-content/themes/silencethegrowl/assets/img/backpack.png');
+          background-repeat: no-repeat;
+          background-position: center center;
+          margin: 0 auto;
+          width: 740px;
+          height: 1151px;
+          @include background-size(contain);
+          
+     }
+
+     &.shrink-backpack{
+          .backpack-image{
+               width: 200px;
+               height: 600px;
+               @include transition(all 1s ease-in-out);
+               @include transform(translateY(-1050px));
+          }
      }
 }
 // .backpack{
@@ -296,10 +350,6 @@ footer{
      }
      
 }
-
-
-
-
 
 
 

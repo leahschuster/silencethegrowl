@@ -572,13 +572,14 @@ var App;
             currentCornerPositionY = parseInt($('.corner-inner').css('top')),
             currentBackpackPosition = parseInt($('#backpack_scroll').css('transform').split(',')[5]),
             backpackPosition = -(documentScrollPercent * 150),
+            topOfInfo = $(window).height(),
             bottomOfInfo =  $('.info').offset().top + $('.info').outerHeight(),
             backpackScale = (1151 *  (1 - documentScrollPercent)) + 300;
 
-            console.log(backpackScale);            
+            console.log(topOfInfo, $(window).scrollTop(), $('#corner').hasClass('scale-up'))       
 
             if (bottomOfInfo > $(window).scrollTop()) { 
-                animateCorner();
+                //animateCorner();
                 scrollBackpack();
 
             //You've reached the bottom of the page
@@ -586,30 +587,39 @@ var App;
                 disable_scroll();
                 shrinkBackpack();
             }
+
+            if (topOfInfo < $(window).scrollTop() && $('#corner').hasClass('scale-up')) { 
+                $('.corner').addClass('scale-down');
+                $('.corner').removeClass('scale-up');
+            }
+            if (topOfInfo > $(window).scrollTop() && $('#corner').hasClass('scale-down')) { 
+               $('.corner').addClass('scale-up');
+                $('.corner').removeClass('scale-down');
+            }
        
        
         //if($(window).scrollTop() > $(window).height()){
             
             //Move gray corner up    
-            function animateCorner(){
-                $('.corner').css({
-                    'background-position-y': cornerPositionY,
-                    'background-position-x': cornerPositionX
-                });
+            // function animateCorner(){
+            //     $('.corner').css({
+            //         'background-position-y': cornerPositionY,
+            //         'background-position-x': cornerPositionX
+            //     });
 
-                //fade
-                $('.fade-content').css({'opacity': 1 - (documentScrollPercent*4)});
+            //     //fade
+            //     $('.fade-content').css({'opacity': 1 - (documentScrollPercent*4)});
 
-                 //content
-                $('.corner-inner').css({
-                    'top': -(documentScrollPercent) + currentCornerPositionY + 'px',
-                    'left': -(documentScrollPercent) + currentCornerPositionX + 'px'
+            //      //content
+            //     $('.corner-inner').css({
+            //         'top': -(documentScrollPercent) + currentCornerPositionY + 'px',
+            //         'left': -(documentScrollPercent) + currentCornerPositionX + 'px'
 
-                });
-
-
+            //     });
                
-            }
+            // }
+
+
 
             //Scroll Backpack Up
             function scrollBackpack(){
@@ -625,21 +635,23 @@ var App;
 
             //Scale Backpack down
             function shrinkBackpack(){
-                $('#backpack_scroll img').css({
-                    '-webkit-transform': 'scale(0.3)',
-                    '-moz-transform': 'scale(0.3)',
-                    '-ms-transform': 'scale(0.3)',
-                    '-o-transform': 'scale(0.3)',
-                    'transform': 'scale(0.3)'
-                });
-                $('#backpack_scroll').css({
-                    'bottom': 0,
-                    '-webkit-transform': 'translate3d(0, 0,0)',
-                    '-moz-transform': 'translate3d(0, 0,0)',
-                    '-ms-transform': 'translate3d(0, 0,0)',
-                    '-o-transform': 'translate3d(0, 0,0)',
-                    'transform': 'translate3d(0, 0,0)'
-                });
+                $('#backpack_scroll').addClass('shrink-backpack');
+
+                // $('#backpack_scroll img').css({
+                //     '-webkit-transform': 'scale(0.3)',
+                //     '-moz-transform': 'scale(0.3)',
+                //     '-ms-transform': 'scale(0.3)',
+                //     '-o-transform': 'scale(0.3)',
+                //     'transform': 'scale(0.3)'
+                // });
+                // $('#backpack_scroll').css({
+                //     'bottom': 0,
+                //     '-webkit-transform': 'translate3d(0, 0,0)',
+                //     '-moz-transform': 'translate3d(0, 0,0)',
+                //     '-ms-transform': 'translate3d(0, 0,0)',
+                //     '-o-transform': 'translate3d(0, 0,0)',
+                //     'transform': 'translate3d(0, 0,0)'
+                // });
 
                 setTimeout(fadeInDonateForm, 1500);
 

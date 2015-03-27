@@ -6,7 +6,7 @@ Template Name: Silence the Growl
 <?php get_header(); ?>
 
 <!--Gray corner block -->
-<div class="corner text-center">
+<div id="corner" class="corner text-center scale-up">
      <div class="corner-inner">
           <!--Fade on scroll -->
           <div class="fade-content">
@@ -16,14 +16,12 @@ Template Name: Silence the Growl
           </div>
           
           <!--Silence the Growl logo -->
-          <a class="icons-silence-the-growl-logo logo block"></a>
+          <a href="/" class="icons-silence-the-growl-logo logo block"></a>
+          <hr>
+          <p class="caption">A $5 solution to end summer hunger. Give a kid their summer back <span class="blue-light">(pack)<span></p>
           
-
           <!--Fade on scroll -->
           <div class="fade-content">
-
-               <hr>
-               <p class="caption">A $5 solution to end summer hunger. Give a kid their summer back <span class="blue-light">(pack)<span></p>
                <a href="#donate" class="btn btn-icon"><span class="btn-label"><i class="icons-give"></i></span> <span>Give Now</span></a>
                
                <p class="caption">Every 3 shares buys another backpack</p>
@@ -135,7 +133,7 @@ Template Name: Silence the Growl
 </footer>
 
 <div id="backpack_scroll">
-     <img src="/wp-content/themes/silencethegrowl/assets/img/backpack.png" alt="" />
+     <div class="backpack-image"></div>
 </div>
 
 </div><!-- .site-content -->
