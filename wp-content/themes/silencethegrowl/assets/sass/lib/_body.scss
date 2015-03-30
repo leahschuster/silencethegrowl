@@ -1,5 +1,5 @@
 
-html, body{
+body{
   height: 5000px;
 }
 
@@ -37,8 +37,6 @@ html, body{
 ================================================== */
 .row {
   @include clearfix;
-  margin-left:-#{$margin};
-  margin-right:-#{$margin};
   margin-bottom:20px;
 }
 
@@ -46,22 +44,20 @@ section{
   padding: 80px 0;
   position: relative;
   background: #ffffff;
-  &:first-child{
-    background: transparent;
-  }
   @include media(mobile) {
     padding: 30px 0;
   }
 }
 
-img {
-  width: auto; //This can't be 100%
-}
-@include media(moblet) {
-  img.img-responsive{
+img{
+  width: auto;
+  max-width: 100%;
+  &.img-responsive{
     width: 100%;
   }
 }
+
+
 
 hr{
   width: 200px;
